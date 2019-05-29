@@ -1,31 +1,31 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
  class Skills extends Component {
     render() {
-        const {langage,framwork}=this.props
+        const {langage,framwork,experience}=this.props
+
         return (
             <div>
                 
-                <h2>Skills </h2>
+                <h2 >Skills </h2>
 
                <ul>
-                   <h4>Language Programmation</h4>
-
+             
 <li>
-    {langage}
+    {langage} :   {framwork}  :  {experience} Month
 </li>
 
 
 
                </ul>
-               <ul>
-                   <h4>Framwork</h4>
-                   <li>  {framwork}</li>
-                   
-               </ul>
+              
                 
             </div>
         )
     }
+}
+Skills.propTypes = {
+  experience: PropTypes.string.isRequired
 }
 export default Skills;
