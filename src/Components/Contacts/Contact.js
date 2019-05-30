@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './Contact.css'
+import {Consumer} from '../context';
+
  class Contact extends Component {
 
    state={
     showContactToggle:true
    }
+
+
    Delete =() =>
    {
    
-    this.props.deleateContactFromContact();
+   
    }
     showContact(name)
     {
@@ -20,14 +24,18 @@ import './Contact.css'
 
     }
     render() {
-        const {name,tel , email}=this.props.data;
-        return (
-            <div>
+         const {name,tel , email}=this.props.data;
+      return(
+         <Consumer>
+           {
+            value =>(
+
+               <div>
                          <div className="card" >
   <div className="card-body">
     <h5 className="card-title">
      {name} <i onClick={this.showContact.bind(this,name)} className="fa fa-sort-down"style={{cursor:'grab'}}></i>
-     <i className="fa fa-times" style={{color:'red',float:'right',cursor:'pointer'}} onClick={this.Delete}>
+     <i className="fa fa-times" style={{color:'red',float:'right',cursor:'pointer'}} onClick={this.Delete.bind(this,)}>
      </i>
     </h5>
     {(this.state.showContactToggle) ? (
@@ -44,8 +52,16 @@ import './Contact.css'
 </div>
                 
             </div>
+
+
+              )
+           }
+
+         </Consumer>
+
         )
-    }
+     
+            }
     
 }
 Contact.defaultProps = {
@@ -55,6 +71,6 @@ Contact.defaultProps = {
 }
 Contact.propTypes = {
   data: PropTypes.object.isRequired,
-  deleateContactFromContact:PropTypes.func.isRequired
+ 
 }
 export default Contact;
