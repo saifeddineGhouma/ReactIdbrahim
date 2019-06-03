@@ -24,18 +24,20 @@ import {Consumer} from '../context';
 
     }
     render() {
-         const {name,tel , email}=this.props.data;
+         const {id,name,tel , email}=this.props.data;
       return(
          <Consumer>
            {
-            value =>(
+            value =>{
+              const {dispatch}=value;
+              return (
 
-               <div>
+ <div>
                          <div className="card" >
   <div className="card-body">
     <h5 className="card-title">
      {name} <i onClick={this.showContact.bind(this,name)} className="fa fa-sort-down"style={{cursor:'grab'}}></i>
-     <i className="fa fa-times" style={{color:'red',float:'right',cursor:'pointer'}} onClick={this.Delete.bind(this,)}>
+     <i className="fa fa-times" style={{color:'red',float:'right',cursor:'pointer'}} onClick={this.Delete.bind(this,id,dispatch)}>
      </i>
     </h5>
     {(this.state.showContactToggle) ? (
@@ -52,9 +54,12 @@ import {Consumer} from '../context';
 </div>
                 
             </div>
+                )
+
+              
 
 
-              )
+              }
            }
 
          </Consumer>
