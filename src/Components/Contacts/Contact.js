@@ -10,9 +10,12 @@ import {Consumer} from '../context';
    }
 
 
-   Delete =() =>
+   Delete =(id,dispatch) =>
    {
-   
+   dispatch({
+    type:'DELETE_CONTACT',
+    payload:id
+   })
    
    }
     showContact(name)
