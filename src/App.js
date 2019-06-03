@@ -2,6 +2,8 @@ import React from 'react';
 import Skills from './Components/Skills/Skills'
 import Navbar from './Components/Navbar/Navbar'
 import Contacts from'./Components/Contacts/Contacts'
+import AddContact from'./Components/Contacts/AddContact'
+
 import {Provider} from './Components/context'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
@@ -12,6 +14,8 @@ function App() {
   	<Provider>
     <div className="App">
     <Navbar title="Contact liste " />
+      	<AddContact/>
+
    <Contacts/>
    
 <br/>
