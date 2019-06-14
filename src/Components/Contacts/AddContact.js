@@ -7,6 +7,11 @@ class AddContact extends React.Component {
 		email:''
 		
 	}
+	//onChangeInput = () =>
+	onChange()
+	{
+		console.log("test");
+	}
   render(){
   	 const {name,phone, email}=this.state;
     return (
